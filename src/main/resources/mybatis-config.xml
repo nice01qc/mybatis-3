@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://10.33.107.20:3306/merlin"/>
+        <property name="username" value="hdic_admin"/>
+        <property name="password" value="654321"/>
+      </dataSource>
+    </environment>
+  </environments>
+  <mappers>
+    <mapper resource="NoticeMapper.xml"/>
+  </mappers>
+</configuration>
