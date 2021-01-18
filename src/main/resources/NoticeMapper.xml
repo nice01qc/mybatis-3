@@ -3,7 +3,29 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="test.NoticeMapper">
-  <select id="selectOneNotice" resultType="test.Notice">
-    select * from notice_read where id = 6
+  <cache type="test.MyCache" />
+<!--<cache />-->
+  <sql id="sql1" >
+    id = #{id}
+  </sql>
+
+
+  <resultMap id="noticeMapper1" type="test.Notice">
+    <id property="id" column="id" />
+    <result property="eject" column="eject" />
+    <result property="mtime" column="mtime" />
+    <result property="noticeId" column="noticeId" />
+    <result property="read" column="read" />
+    <result property="UCID" column="UCID" />
+  </resultMap>
+
+
+  <select id="selectOneNotice" resultType="test.Notice" >
+    select * from notice_read where
+    <if test="id != 0 and id !=2" >
+      <include refid="sql1" />
+    </if>
   </select>
+
+
 </mapper>

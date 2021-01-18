@@ -31,12 +31,12 @@ import org.apache.ibatis.type.TypeHandlerRegistry;
 public class ResultMapping {
 
   private Configuration configuration;
-  private String property;
-  private String column;
-  private Class<?> javaType;
-  private JdbcType jdbcType;
-  private TypeHandler<?> typeHandler;
-  private String nestedResultMapId;
+  private String property;    // 对应节点的column属性，表示从数据库中得到的列名或者是列名的别名
+  private String column;      // 对应节点的property属性，表示的是与改列进行映射的属性
+  private Class<?> javaType;  // 对应节点的javaType属性，表示的是一个JavaBean的完全限定名，或一个类型别名
+  private JdbcType jdbcType;  // 对应jdbcType属性，表示的是进行映射的列的JDBC类型
+  private TypeHandler<?> typeHandler;   // 对应节点的typeHandler属性，表示的是类型处理器，他会覆盖默认的类型处理器
+  private String nestedResultMapId;   //
   private String nestedQueryId;
   private Set<String> notNullColumns;
   private String columnPrefix;

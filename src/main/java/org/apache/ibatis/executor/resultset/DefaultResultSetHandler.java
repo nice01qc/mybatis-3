@@ -857,7 +857,7 @@ public class DefaultResultSetHandler implements ResultSetHandler {
     Object rowValue = previousRowValue;
     while (shouldProcessMoreRows(resultContext, rowBounds) && !resultSet.isClosed() && resultSet.next()) {
       final ResultMap discriminatedResultMap = resolveDiscriminatedResultMap(resultSet, resultMap, null);
-      final CacheKey rowKey = createRowKey(discriminatedResultMap, rsw, null);
+      final CacheKey rowKey = createRowKey(discriminatedResultMap, rsw, null); // 这个CacheKey很有用
       Object partialObject = nestedResultObjects.get(rowKey);
       // issue #577 && #542
       if (mappedStatement.isResultOrdered()) {

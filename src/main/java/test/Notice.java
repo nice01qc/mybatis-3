@@ -1,8 +1,9 @@
 package test;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Notice {
+public class Notice implements Serializable {
   int id;
   int noticeId;
   String UCID;

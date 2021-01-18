@@ -43,6 +43,7 @@ public class SqlSourceBuilder extends BaseBuilder {
     ParameterMappingTokenHandler handler = new ParameterMappingTokenHandler(configuration, parameterType, additionalParameters);
     GenericTokenParser parser = new GenericTokenParser("#{", "}", handler);
     String sql = parser.parse(originalSql);
+    System.out.println("替换#{}, 并将#{}中的值抽出来形成映射：parameterMappings");
     return new StaticSqlSource(configuration, sql, handler.getParameterMappings());
   }
 

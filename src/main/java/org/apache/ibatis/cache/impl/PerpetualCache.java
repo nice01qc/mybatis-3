@@ -46,6 +46,7 @@ public class PerpetualCache implements Cache {
 
   @Override
   public void putObject(Object key, Object value) {
+//    System.out.println("Perpetural # putObject # " + key + "::" + value);
     cache.put(key, value);
   }
 
